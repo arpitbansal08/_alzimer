@@ -1,0 +1,374 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>ValueError: X has 7 features, but MinMaxScaler is expecting 8 features as input. // Werkzeug Debugger</title>
+    <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css" type="text/css">
+    <!-- We need to make sure this has a favicon so that the debugger does
+         not accidentally trigger a request to /favicon.ico which might
+         change the application's state. -->
+    <link rel="shortcut icon" href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
+    <script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
+    <script type="text/javascript">
+        var TRACEBACK = 140618582143088,
+            CONSOLE_MODE = false,
+            EVALEX = true,
+            EVALEX_TRUSTED = false,
+            SECRET = "wqFfYsj76msT1ZxSzbEl";
+    </script>
+</head>
+
+<body style="background-color: #fff">
+    <div class="debugger">
+        <h1>ValueError</h1>
+        <div class="detail">
+            <p class="errormsg">ValueError: X has 7 features, but MinMaxScaler is expecting 8 features as input.</p>
+        </div>
+        <h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
+        <div class="traceback">
+            <h3></h3>
+            <ul>
+                <li>
+                    <div class="frame" id="frame-140618582143232">
+                        <h4>File <cite
+                                class="filename">"/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/flask/app.py"</cite>,
+                            line <em class="line">2088</em>,
+                            in <code class="function">__call__</code></h4>
+                        <div class="source library">
+                            <pre
+                                class="line before"><span class="ws">    </span>def __call__(self, environ: dict, start_response: t.Callable) -&gt; t.Any:</pre>
+                            <pre
+                                class="line before"><span class="ws">        </span>&quot;&quot;&quot;The WSGI server calls the Flask application object as the</pre>
+                            <pre
+                                class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
+                            <pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
+                            <pre class="line before"><span class="ws">        </span>&quot;&quot;&quot;</pre>
+                            <pre
+                                class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-140618582143184">
+                        <h4>File <cite
+                                class="filename">"/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/flask/app.py"</cite>,
+                            line <em class="line">2073</em>,
+                            in <code class="function">wsgi_app</code></h4>
+                        <div class="source library">
+                            <pre class="line before"><span class="ws">            </span>try:</pre>
+                            <pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+                            <pre
+                                class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+                            <pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
+                            <pre class="line before"><span class="ws">                </span>error = e</pre>
+                            <pre
+                                class="line current"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+                            <pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+                            <pre
+                                class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+                            <pre class="line after"><span class="ws">                </span>raise</pre>
+                            <pre
+                                class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
+                            <pre class="line after"><span class="ws">        </span>finally:</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-140618582143424">
+                        <h4>File <cite
+                                class="filename">"/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/flask/app.py"</cite>,
+                            line <em class="line">2070</em>,
+                            in <code class="function">wsgi_app</code></h4>
+                        <div class="source library">
+                            <pre
+                                class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
+                            <pre
+                                class="line before"><span class="ws">        </span>error: t.Optional[BaseException] = None</pre>
+                            <pre class="line before"><span class="ws">        </span>try:</pre>
+                            <pre class="line before"><span class="ws">            </span>try:</pre>
+                            <pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+                            <pre
+                                class="line current"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+                            <pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
+                            <pre class="line after"><span class="ws">                </span>error = e</pre>
+                            <pre
+                                class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+                            <pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+                            <pre
+                                class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-140618582143472">
+                        <h4>File <cite
+                                class="filename">"/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/flask/app.py"</cite>,
+                            line <em class="line">1515</em>,
+                            in <code class="function">full_dispatch_request</code></h4>
+                        <div class="source library">
+                            <pre
+                                class="line before"><span class="ws">            </span>request_started.send(self)</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+                            <pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+                            <pre
+                                class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+                            <pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
+                            <pre
+                                class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+                            <pre
+                                class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                            <pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+                            <pre class="line after"><span class="ws">        </span>self,</pre>
+                            <pre
+                                class="line after"><span class="ws">        </span>rv: t.Union[ResponseReturnValue, HTTPException],</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-140618582143568">
+                        <h4>File <cite
+                                class="filename">"/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/flask/app.py"</cite>,
+                            line <em class="line">1513</em>,
+                            in <code class="function">full_dispatch_request</code></h4>
+                        <div class="source library">
+                            <pre
+                                class="line before"><span class="ws">        </span>self.try_trigger_before_first_request_functions()</pre>
+                            <pre class="line before"><span class="ws">        </span>try:</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span>request_started.send(self)</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+                            <pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+                            <pre
+                                class="line current"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+                            <pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
+                            <pre
+                                class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+                            <pre
+                                class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                            <pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-140618582143520">
+                        <h4>File <cite
+                                class="filename">"/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/flask/app.py"</cite>,
+                            line <em class="line">1499</em>,
+                            in <code class="function">dispatch_request</code></h4>
+                        <div class="source library">
+                            <pre
+                                class="line before"><span class="ws">            </span>getattr(rule, &quot;provide_automatic_options&quot;, False)</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span>and req.method == &quot;OPTIONS&quot;</pre>
+                            <pre class="line before"><span class="ws">        </span>):</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
+                            <pre
+                                class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
+                            <pre
+                                class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                            <pre
+                                class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
+                            <pre
+                                class="line after"><span class="ws">        </span>&quot;&quot;&quot;Dispatches the request and on top of that performs request</pre>
+                            <pre
+                                class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
+                            <pre class="line after"><span class="ws">        </span>error handling.</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-140618582143664">
+                        <h4>File <cite
+                                class="filename">"/Users/arpitbansal/Documents/REACT-JS-TUTORIAL/testin/backend/beckendpyth/backend.py"</cite>,
+                            line <em class="line">35</em>,
+                            in <code class="function">predict</code></h4>
+                        <div class="source ">
+                            <pre
+                                class="line before"><span class="ws">  </span># tiv = float(data.get(&#x27;TIV&#x27;, 0))</pre>
+                            <pre
+                                class="line before"><span class="ws">  </span># wbv = float(data.get(&#x27;WBV&#x27;, 0))</pre>
+                            <pre
+                                class="line before"><span class="ws">  </span># asf = float(data.get(&#x27;ASF&#x27;, 0))</pre>
+                            <pre class="line before"><span class="ws"></span> </pre>
+                            <pre class="line before"><span class="ws">    </span># Preprocess the input data</pre>
+                            <pre
+                                class="line current"><span class="ws">  </span>input_data = scaler.transform([[educ, sess, mmse, cdr, tiv, wbv, asf]])</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                            <pre class="line after"><span class="ws">  </span># Preprocess data (if needed)</pre>
+                            <pre
+                                class="line after"><span class="ws">  </span># ... (Your data preprocessing logic)</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                            <pre class="line after"><span class="ws">  </span># Make prediction using your model</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-140618582143856">
+                        <h4>File <cite
+                                class="filename">"/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/sklearn/utils/_set_output.py"</cite>,
+                            line <em class="line">295</em>,
+                            in <code class="function">wrapped</code></h4>
+                        <div class="source library">
+                            <pre class="line before"><span class="ws"></span>def _wrap_method_output(f, method):</pre>
+                            <pre
+                                class="line before"><span class="ws">    </span>&quot;&quot;&quot;Wrapper used by `_SetOutputMixin` to automatically wrap methods.&quot;&quot;&quot;</pre>
+                            <pre class="line before"><span class="ws"></span> </pre>
+                            <pre class="line before"><span class="ws">    </span>@wraps(f)</pre>
+                            <pre
+                                class="line before"><span class="ws">    </span>def wrapped(self, X, *args, **kwargs):</pre>
+                            <pre
+                                class="line current"><span class="ws">        </span>data_to_wrap = f(self, X, *args, **kwargs)</pre>
+                            <pre
+                                class="line after"><span class="ws">        </span>if isinstance(data_to_wrap, tuple):</pre>
+                            <pre
+                                class="line after"><span class="ws">            </span># only wrap the first output for cross decomposition</pre>
+                            <pre class="line after"><span class="ws">            </span>return_tuple = (</pre>
+                            <pre
+                                class="line after"><span class="ws">                </span>_wrap_data_with_container(method, data_to_wrap[0], X, self),</pre>
+                            <pre class="line after"><span class="ws">                </span>*data_to_wrap[1:],</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-140618582143712">
+                        <h4>File <cite
+                                class="filename">"/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/sklearn/preprocessing/_data.py"</cite>,
+                            line <em class="line">534</em>,
+                            in <code class="function">transform</code></h4>
+                        <div class="source library">
+                            <pre class="line before"><span class="ws">        </span>&quot;&quot;&quot;</pre>
+                            <pre class="line before"><span class="ws">        </span>check_is_fitted(self)</pre>
+                            <pre class="line before"><span class="ws"></span> </pre>
+                            <pre class="line before"><span class="ws">        </span>xp, _ = get_namespace(X)</pre>
+                            <pre class="line before"><span class="ws"></span> </pre>
+                            <pre class="line current"><span class="ws">        </span>X = self._validate_data(</pre>
+                            <pre class="line after"><span class="ws">            </span>X,</pre>
+                            <pre class="line after"><span class="ws">            </span>copy=self.copy,</pre>
+                            <pre
+                                class="line after"><span class="ws">            </span>dtype=_array_api.supported_float_dtypes(xp),</pre>
+                            <pre
+                                class="line after"><span class="ws">            </span>force_all_finite=&quot;allow-nan&quot;,</pre>
+                            <pre class="line after"><span class="ws">            </span>reset=False,</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-140618582143808">
+                        <h4>File <cite
+                                class="filename">"/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/sklearn/base.py"</cite>,
+                            line <em class="line">654</em>,
+                            in <code class="function">_validate_data</code></h4>
+                        <div class="source library">
+                            <pre class="line before"><span class="ws">            </span>else:</pre>
+                            <pre
+                                class="line before"><span class="ws">                </span>X, y = check_X_y(X, y, **check_params)</pre>
+                            <pre class="line before"><span class="ws">            </span>out = X, y</pre>
+                            <pre class="line before"><span class="ws"></span> </pre>
+                            <pre
+                                class="line before"><span class="ws">        </span>if not no_val_X and check_params.get(&quot;ensure_2d&quot;, True):</pre>
+                            <pre
+                                class="line current"><span class="ws">            </span>self._check_n_features(X, reset=reset)</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                            <pre class="line after"><span class="ws">        </span>return out</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                            <pre class="line after"><span class="ws">    </span>def _validate_params(self):</pre>
+                            <pre
+                                class="line after"><span class="ws">        </span>&quot;&quot;&quot;Validate types and values of constructor parameters</pre>
+                        </div>
+                    </div>
+
+                <li>
+                    <div class="frame" id="frame-140618582143904">
+                        <h4>File <cite
+                                class="filename">"/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/sklearn/base.py"</cite>,
+                            line <em class="line">443</em>,
+                            in <code class="function">_check_n_features</code></h4>
+                        <div class="source library">
+                            <pre
+                                class="line before"><span class="ws">            </span># was not recorded by calling fit first. This is typically the case</pre>
+                            <pre
+                                class="line before"><span class="ws">            </span># for stateless transformers.</pre>
+                            <pre class="line before"><span class="ws">            </span>return</pre>
+                            <pre class="line before"><span class="ws"></span> </pre>
+                            <pre
+                                class="line before"><span class="ws">        </span>if n_features != self.n_features_in_:</pre>
+                            <pre class="line current"><span class="ws">            </span>raise ValueError(</pre>
+                            <pre
+                                class="line after"><span class="ws">                </span>f&quot;X has {n_features} features, but {self.__class__.__name__} &quot;</pre>
+                            <pre
+                                class="line after"><span class="ws">                </span>f&quot;is expecting {self.n_features_in_} features as input.&quot;</pre>
+                            <pre class="line after"><span class="ws">            </span>)</pre>
+                            <pre class="line after"><span class="ws"></span> </pre>
+                            <pre
+                                class="line after"><span class="ws">    </span>def _check_feature_names(self, X, *, reset):</pre>
+                        </div>
+                    </div>
+            </ul>
+            <blockquote>ValueError: X has 7 features, but MinMaxScaler is expecting 8 features as input.</blockquote>
+        </div>
+
+        <div class="plain">
+            <p>
+                This is the Copy/Paste friendly version of the traceback.
+            </p>
+            <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/flask/app.py&quot;, line 2088, in __call__
+    return self.wsgi_app(environ, start_response)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/flask/app.py&quot;, line 2073, in wsgi_app
+    response = self.handle_exception(e)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/flask/app.py&quot;, line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/flask/app.py&quot;, line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/flask/app.py&quot;, line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/flask/app.py&quot;, line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File &quot;/Users/arpitbansal/Documents/REACT-JS-TUTORIAL/testin/backend/beckendpyth/backend.py&quot;, line 35, in predict
+    input_data = scaler.transform([[educ, sess, mmse, cdr, tiv, wbv, asf]])
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/sklearn/utils/_set_output.py&quot;, line 295, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/sklearn/preprocessing/_data.py&quot;, line 534, in transform
+    X = self._validate_data(
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/sklearn/base.py&quot;, line 654, in _validate_data
+    self._check_n_features(X, reset=reset)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/sklearn/base.py&quot;, line 443, in _check_n_features
+    raise ValueError(
+ValueError: X has 7 features, but MinMaxScaler is expecting 8 features as input.</textarea>
+        </div>
+        <div class="explanation">
+            The debugger caught an exception in your WSGI application. You can now
+            look at the traceback which led to the error. <span class="nojavascript">
+                If you enable JavaScript you can also use additional features such as code
+                execution (if the evalex feature is enabled), automatic pasting of the
+                exceptions and much more.</span>
+        </div>
+        <div class="footer">
+            Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+            friendly Werkzeug powered traceback interpreter.
+        </div>
+    </div>
+
+    <div class="pin-prompt">
+        <div class="inner">
+            <h3>Console Locked</h3>
+            <p>
+                The console is locked and needs to be unlocked by entering the PIN.
+                You can find the PIN printed out on the standard output of your
+                shell that runs the server.
+            <form>
+                <p>PIN:
+                    <input type=text name=pin size=14>
+                    <input type=submit name=btn value="Confirm Pin">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
